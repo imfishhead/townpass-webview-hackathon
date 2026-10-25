@@ -1,21 +1,25 @@
 # Source of truth
 
-Checked on 2026-10-25.
+Checked on 2026-10-26.
 
 ## Official sources
 
 - TownPass Flutter host: https://github.com/taipei-doit/TownPass
+- Official Vue microservice starter: https://github.com/taipei-doit/TownPass-Services
 - Development guideline: https://tpe-guideline.web.app/en/docs/
 - Design guideline: https://tpe-guideline.web.app/en/design/
 - Figma UI kit, page `1:2`: https://www.figma.com/design/yCpXgoSE0rIhpB7SewpTp3/城市通-Town-Pass-Open-Source-Gov-Mobile-App-UI-kit-and-design-system--Community-?node-id=1-2
 - README example, ParkFlow: https://github.com/taipei-doit/townpass2024-parking
 - README example, RideFlow: https://github.com/taipei-doit/townpass2025-RideFlow
+- 2026 Taipei Fall event page: https://codefest.taipei/2026-fall/
+
+The user-supplied `2026 城市通入門指引` workshop export is a dated event source, not a permanent TownPass specification. Its reusable 2026 requirements are summarized in [event-2026-fall.md](event-2026-fall.md). Re-check the organizer’s current rule sheet when the task affects eligibility, licensing, publication duration, AI, maps, or submission.
 
 ## Verified facts
 
-The official guideline specifies Node.js 18+, Vue 3 Composition API, Vue Router, Pinia, Tailwind CSS, `v-calendar`, Headless UI Dialog, `pnpm install`, `pnpm dev`, and a default local URL of `http://localhost:5173`.
+The official Vue guideline and starter specify Node.js 18+, Vue 3 Composition API, Vue Router, Pinia, Tailwind CSS, `v-calendar`, Headless UI Dialog, `pnpm install`, `pnpm dev`, and a default local URL of `http://localhost:5173`. The 2026 workshop guide says the WebView page may use another language or framework, so treat Vue as the official starter rather than a competition-wide mandate.
 
-The inspected official Flutter repo checkout uses `flutter_inappwebview ^6.1.5`. Re-check `pubspec.yaml` instead of assuming this version remains current. Inspect these files when refreshing the contract:
+The inspected official Flutter repo checkout uses Flutter `3.47.6` through `.fvmrc`, Dart `>=3.13.0 <4.0.0`, and `flutter_inappwebview ^6.1.5`. The repo’s `LICENSE` is GPL-3.0. Re-check these files instead of assuming the values remain current:
 
 - `lib/util/tp_web_view.dart`
 - `lib/util/web_message_handler/tp_web_message_listener.dart`
@@ -24,6 +28,10 @@ The inspected official Flutter repo checkout uses `flutter_inappwebview ^6.1.5`.
 - `lib/util/tp_colors.dart`
 - `lib/util/tp_text_styles.dart`
 - `pubspec.yaml`
+- `.fvmrc`
+- `LICENSE`
+- `lib/page/city_service/model/my_service_model.dart`
+- `lib/page/city_service/model/trending_service_model.dart`
 
 The host registers `flutterObject` with `addWebMessageListener`. Web messages and replies are stringified JSON objects with `name` and `data` keys. The verified method names are `userinfo`, `launch_map`, `phone_call`, `1999agree`, `location`, `deviceinfo`, `open_link`, `notify`, and `qr_code_scan`.
 
@@ -51,3 +59,4 @@ The Figma canvas includes misspelled or inconsistent names, including `Font-Fami
 2. Read the guideline pages for project setup, prerequisites, project structure, two-way connection, web connection, method contracts, and accessibility.
 3. When Figma values need to be refreshed, use the connected Figma tool to inspect the exact nodes above. Record name, displayed value, node ID, and inspection date. If the tool is unavailable, keep the verified snapshot and mark unknown values instead of guessing.
 4. Compare Figma against `tp_colors.dart` and `tp_text_styles.dart`. Report mismatches instead of picking a third value.
+5. For a named hackathon, refresh its rule sheet separately. Record the event name and date; never overwrite permanent host or design facts with event-only requirements.

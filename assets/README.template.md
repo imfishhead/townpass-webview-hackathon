@@ -27,16 +27,16 @@
 ```text
 TownPass Flutter App
 └─ InAppWebView
-   ├─ Vue 3 WebView frontend
+   ├─ {{WebView frontend framework}}
    ├─ flutterObject message bridge
    └─ {{backend / public APIs / data store}}
 ```
 
 | 類別 | 技術與版本 | 用途 |
 |---|---|---|
-| 前端 | Vue 3、Vite、TypeScript | {{用途}} |
-| 狀態 | Pinia | {{用途}} |
-| 樣式 | Tailwind CSS | TownPass tokens 與元件樣式 |
+| 前端 | {{框架與版本}} | {{用途}} |
+| 狀態 | {{狀態管理或「無」}} | {{用途}} |
+| 樣式 | {{CSS 方案}} | TownPass tokens 與元件樣式 |
 | 後端 | {{技術或「無」}} | {{用途}} |
 | 外部資料 | {{API 名稱}} | {{資料與更新頻率}} |
 
@@ -44,19 +44,17 @@ TownPass Flutter App
 
 ### 需求
 
-- Node.js 18+
-- pnpm {{實際版本，如有鎖定}}
+- {{實際 runtime 與版本；使用官方 Vue starter 時為 Node.js 18+}}
+- {{實際套件管理器與版本}}
 - {{其他 runtime}}
 
 ### 本機執行
 
 ```sh
-pnpm install
-cp .env.example .env
-pnpm dev
+{{依 lockfile 與 package scripts 填寫可重現的安裝及啟動命令}}
 ```
 
-預設網址：`http://localhost:5173`
+本機網址：{{例如 `http://localhost:5173`}}
 
 ### 環境變數
 
@@ -94,11 +92,20 @@ pnpm build
 
 {{說明瀏覽器開發模式、真機測試、權限拒絕與取消流程。不要放真實個資或位置資料。}}
 
+### TownPass App 註冊與原生變更
+
+- 服務設定：{{`MyServiceItemId`、category、destinationUrl、forceWebViewTitle，或「未修改 App」}}
+- 圖示與產生程式碼：{{SVG 路徑與實際 build_runner 命令}}
+- 自訂 Handler：{{名稱、用途、request／reply、iOS／Android 權限，或「無」}}
+- App 內驗證：{{iOS／Android 裝置、TownPass commit／版本與結果}}
+
 ## 5. 功能與資料來源 / Features & Data
 
 | 編號 | 功能 | 實作摘要 | 資料來源與授權 |
 |---|---|---|---|
 | 5.1 | {{功能}} | {{輸入、處理、輸出}} | {{官方資料集 URL、更新頻率、授權}} |
+
+模擬、快取、衍生或生成資料：{{逐項標示；沒有就寫「無」}}
 
 ## 6. 設計與無障礙 / Design & Accessibility
 
@@ -131,22 +138,34 @@ src/
 └─ views/
 ```
 
-## 9. 部署與安全
+## 9. 部署、維運與安全
 
-{{部署環境、build 產物、CORS/CSP、HTTPS、secret 管理、log 個資遮蔽與回復方式。}}
+{{部署環境、region、build 產物、HTTPS、CORS/CSP、secret 管理、log 個資遮蔽、資料更新責任、監控、回復方式與接手流程。後端有容器時列出 Docker build/run 命令與 PORT。}}
 
 ## 10. 團隊與致謝
 
 - {{姓名或 GitHub handle}}：{{分工}}
 
-使用的開放資料、UI 資源、套件、插圖與第三方服務：
+使用的開放資料、UI 資源、套件、模型、地圖／圖磚、插圖與第三方服務：
 
-- {{名稱、來源 URL、授權}}
+| 名稱與版本 | 類型／用途 | 來源 | 授權或使用條款 | 驗證日期 |
+|---|---|---|---|---|
+| {{名稱}} | {{用途}} | {{URL}} | {{SPDX 或條款 URL}} | {{YYYY-MM-DD}} |
 
 ## 11. AI 使用聲明
 
-{{若競賽或主辦單位要求，列出模型、用途、人工驗證、未輸入的敏感資料，以及生成內容的授權風險。若不適用，刪除此節。}}
+### 開發階段
+
+{{列出使用的 AI 工具、用途、人工 review 與未輸入的敏感資料。若未使用，明確寫「未使用」。}}
+
+### 執行階段
+
+| 模型 | 版本 | 量化 | 推論框架 | 來源／授權 | 裝置需求 | 離線測試 |
+|---|---|---|---|---|---|---|
+| {{若產品含 AI 才保留}} | | | | | | |
+
+{{說明使用者問題、裝置端或遠端處理位置、下載大小、冷啟動、失敗與非 AI fallback。依當屆規則揭露，不得把開發階段的雲端 AI 許可推定為產品執行階段許可。}}
 
 ## License
 
-{{授權名稱與 LICENSE 連結}}
+{{依目前競賽規則與實際程式碼確認授權名稱、版號、LICENSE 連結、上游 notices 與公開期限。不要從往屆 README 複製。}}

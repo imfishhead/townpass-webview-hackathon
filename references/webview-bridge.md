@@ -63,3 +63,5 @@ export type TownPassMessage<Name extends string = string, Data = unknown> = {
 For each method used by the project, test valid data, malformed reply JSON, mismatched method name, empty data, permission denial, user cancellation, missing bridge, duplicate replies, late reply after unmount, and the method’s documented no-reply behavior.
 
 Do not place real account, location, device, or scanned data in logs, screenshots, analytics, fixtures, or README examples.
+
+When a required capability is not built in and the user has authorized a native TownPass change, follow [host-integration.md](host-integration.md) for custom handler registration, platform permissions, and end-to-end testing. A web-only task must not silently invent or add a native method.
